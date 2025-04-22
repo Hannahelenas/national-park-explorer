@@ -1,15 +1,26 @@
+import { createBrowserRouter, RouterProvider } from "react-router";
 import "./App.css";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Layout from "./components/Layout";
+import Parks from "./pages/Parks";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "about", element: <About /> },
+      { path: "parks", element: <Parks /> },
+    ],
+  },
+]);
 
 function App() {
   return (
     <>
-      <h1 className="text-7xl font-bold text-center text-teal-700">
-        Welcome to Park Explorer!
-      </h1>
-      <p className="text-3xl text-center mt-10">
-        Discover all of America's national parks — your ultimate guide in one
-        place.
-      </p>
+      <RouterProvider router={router} />
     </>
   );
 }
