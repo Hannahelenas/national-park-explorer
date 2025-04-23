@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Serif&family=Noto+Serif+Display&display=swap");
 @import "tailwindcss";
 
-/* Fonts */
+/* Project Fonts and colors */
 :root {
   --font-noto-serif: "Noto Serif", serif;
   --font-noto-sans: "Noto Sans", sans-serif;
   --font-noto-display: "Noto Serif Display", serif;
+
+  /* Colors */
+  --color-primary: #004677;
 }
 
 body {
@@ -13,5 +16,9 @@ body {
 }
 
 h1 {
+  font-family: var(--font-noto-display);
+}
+
+.font-display {
   font-family: var(--font-noto-display);
 }

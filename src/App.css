@@ -1,17 +1,9 @@
 @import "tailwindcss";
-
+/* 
 #root {
-  max-width: 1280px;
+  max-width: 1280px; 
   margin: 0 auto;
-  padding: 2rem;
+   padding: 2rem; 
   text-align: center;
 }
-
-@theme {
-  --color-*: initial;
-  --color-white: #fff;
-  --color-purple: #3f3cbb;
-  --color-midnight: #121063;
-  --color-tahiti: #3ab7bf;
-  --color-bermuda: #78dcca;
-}
+ */
