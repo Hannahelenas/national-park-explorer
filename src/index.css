@@ -12,13 +12,21 @@
 }
 
 body {
+  overflow-x: hidden;
   font-family: var(--font-noto-sans);
 }
 
 h1 {
-  font-family: var(--font-noto-display);
+  font-family: var(--font-noto-serif);
+}
+h2 {
+  font-family: var(--font-noto-serif);
 }
 
 .font-display {
   font-family: var(--font-noto-display);
+}
+
+.font-serif {
+  font-family: var(--font-noto-serif);
 }
