@@ -24,7 +24,9 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="relative">
+    <nav className="absolute top-0 left-0 w-full bg-white z-100 shadow-md">
+      {" "}
+      {/* Relative justerad */}
       {/* Desktop Menu */}
       <section
         className="max-w-7xl mx-auto w-full py-4 flex items-center justify-between
@@ -55,7 +57,6 @@ export default function Navbar() {
           onClick={() => setMenuOpen(true)}
         />
       </section>
-
       {/* Mobile menu */}
       <section
         className={`fixed top-0 right-0 h-screen w-3/4 max-w-sm bg-white z-50 transform 
