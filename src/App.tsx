@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Layout from "./components/Layout";
 import Parks from "./pages/Parks";
+import { NewsProvider } from "./contexts/NewsContext";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <NewsProvider>
+        <RouterProvider router={router} />
+      </NewsProvider>
     </>
   );
 }
