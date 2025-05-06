@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Layout from "./components/Layout";
 import Parks from "./pages/Parks";
-import { NewsProvider } from "./contexts/NewsContext";
+import { NewsProvider } from "./contexts/NewsProvider";
 
 const router = createBrowserRouter([
   {

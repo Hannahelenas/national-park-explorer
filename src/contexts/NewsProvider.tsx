@@ -1,24 +1,10 @@
-/* import {
-  createContext,
- //useContext, 
-  useEffect,
-  useState,
-  ReactNode,
-} from "react";
+import { useEffect, useState, ReactNode } from "react";
 import { NewsArticle } from "../models/NewsArticle";
-import { RelatedPark } from "../types/news"; 
+import { RelatedPark } from "../types/news";
+import { NewsContext } from "./NewsContext";
 
 const apiKey = import.meta.env.VITE_NPS_API_KEY;
 const apiUrl = import.meta.env.VITE_NPS_NEWS_BASE_URL;
-
-interface NewsContextProps {
-  news: NewsArticle[];
-  error: string | null;
-  loading: boolean;
-  refetch: () => Promise<void>;
-}
-
-export const NewsContext = createContext<NewsContextProps | undefined>(undefined);
 
 export const NewsProvider = ({ children }: { children: ReactNode }) => {
   const [news, setNews] = useState<NewsArticle[]>([]);
@@ -53,7 +39,6 @@ export const NewsProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  // Fetch data when the component mounts
   useEffect(() => {
     fetchNewsReleases();
   }, []);
@@ -71,18 +56,3 @@ export const NewsProvider = ({ children }: { children: ReactNode }) => {
     </NewsContext.Provider>
   );
 };
-
- */
-import { createContext } from "react";
-import { NewsArticle } from "../models/NewsArticle";
-
-export interface NewsContextProps {
-  news: NewsArticle[];
-  error: string | null;
-  loading: boolean;
-  refetch: () => Promise<void>;
-}
-
-export const NewsContext = createContext<NewsContextProps | undefined>(
-  undefined
-);

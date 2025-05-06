@@ -20,14 +20,8 @@ export class NewsArticle {
     this.relatedParks = relatedParks;
     this.parkCode = parkCode;
   }
-
-  // Lägg till en metod för att formatera datumet
+    // Methods 
   getFormattedDate(): string {
     return new Date(this.releaseDate).toLocaleDateString();
   }
-
-  /*  // Lägg till en metod för att visa relaterade parker på ett lägre nivå
-  getRelatedParksInfo(): string {
-    return this.relatedParks.map(park => `${park.fullName} (${park.states})`).join(", ");
-  } */
 }
