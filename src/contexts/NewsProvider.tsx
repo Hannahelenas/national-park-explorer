@@ -25,11 +25,13 @@ export const NewsProvider = ({ children }: { children: ReactNode }) => {
             item.abstract,
             item.releaseDate,
             item.relatedParks as RelatedPark[],
-            item.parkCode
+            item.parkCode,
+            item.image
           )
       );
 
       setNews(articles);
+      console.log(articles);
       setError(null);
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Unknown error");

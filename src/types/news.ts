@@ -6,3 +6,11 @@ export interface RelatedPark {
   states: string;
   url: string;
 }
+
+export interface Image {
+  url: string;
+  credit: string;
+  altText: string;
+  title: string;
+  caption: string;
+}

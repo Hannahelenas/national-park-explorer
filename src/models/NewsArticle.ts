@@ -1,4 +1,4 @@
-import { RelatedPark } from "../types/news";
+import { Image, RelatedPark } from "../types/news";
 
 export class NewsArticle {
   title: string;
@@ -6,21 +6,24 @@ export class NewsArticle {
   releaseDate: string;
   relatedParks: RelatedPark[];
   parkCode: string;
+  image: Image | null = null;
 
   constructor(
     title: string,
     abstract: string,
     releaseDate: string,
     relatedParks: RelatedPark[],
-    parkCode: string
+    parkCode: string,
+    image: Image | null = null
   ) {
     this.title = title;
     this.abstract = abstract;
     this.releaseDate = releaseDate;
     this.relatedParks = relatedParks;
     this.parkCode = parkCode;
+    this.image = image;
   }
-    // Methods 
+  // Methods
   getFormattedDate(): string {
     return new Date(this.releaseDate).toLocaleDateString();
   }
