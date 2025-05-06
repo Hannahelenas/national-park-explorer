@@ -1,46 +1,43 @@
-import { useEffect, useState } from "react";
-
-const apiKey = import.meta.env.VITE_NPS_API_KEY;
-const apiUrl = import.meta.env.VITE_NPS_NEWS_BASE_URL;
-
-interface NewsArticle {
-  title: string;
-  abstract: string;
-}
+import { UseNewsContext } from "../hooks/UseNewsContext";
 
 const RecentNewsSection = () => {
-  const [news, setNews] = useState<NewsArticle[]>([]);
-  const [error, setError] = useState<string | null>(null);
+  const { news, error, loading } = UseNewsContext();
 
-  const fetchNewsReleases = async () => {
-    try {
-      const response = await fetch(`${apiUrl}?limit=5&api_key=${apiKey}`);
-      if (!response.ok) throw new Error("Could not fetch articles");
-      const data = await response.json();
-      setNews(data.data);
-      console.log(data.data);
-    } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : "Unknown error");
-      console.error(err);
-    }
-  };
-
-  useEffect(() => {
-    fetchNewsReleases();
-  }, []);
+  if (loading) return <p>Loading latest news...</p>;
 
   return (
     <section>
-      <h2>LATEST NEWS</h2>
-      {error && <p>Something went wrong:{error}</p>}
-      <ul>
+      <h2 className="lg:mt-5 font-bold text-amber-950 tracking-widest text-2xl">
+        LATEST NEWS
+      </h2>
+      {error && <p>Something went wrong: {error}</p>}
+      <section className="flex flex-col gap-5 mt-5">
         {news.map((item) => (
-          <li key={item.title}>
+          <article key={item.title} className="">
             <h3 className="text-2xl">{item.title}</h3>
             <p>{item.abstract}</p>
-          </li>
+            <p>Release date: {item.getFormattedDate()}</p>
+            {item.image?.url && (
+              <figure>
+                <img
+                  src={item.image.url}
+                  alt={item.image.altText}
+                  className="aspect-square object-cover h-60"
+                />
+              </figure>
+            )}
+            {item.relatedParks.length > 0 && (
+              <p>
+                {item.relatedParks.map((park) => (
+                  <span key={park.parkCode}>
+                    {park.fullName} ({park.states})
+                  </span>
+                ))}
+              </p>
+            )}
+          </article>
         ))}
-      </ul>
+      </section>
     </section>
   );
 };
