@@ -6,38 +6,36 @@ const RecentNewsSection = () => {
   if (loading) return <p>Loading latest news...</p>;
 
   return (
-    <section className="px-10">
-      <h2 className="lg:mt-5 font-bold text-amber-950 tracking-widest text-2xl">
-        LATEST NEWS
+    <section className="px-2 flex flex-col items-center">
+      <h2 className="font-bold lg:mt-5 text-amber-950 tracking-widest text-2xl">
+        Latest News
       </h2>
       {error && <p>Something went wrong: {error}</p>}
       <section className="flex flex-col gap-5 mt-5">
         {news.map((item) => (
-          <article
-            key={item.title}
-            className="border-b-2 border-gray-300 p-5  max-w-5xl"
-          >
+          <article key={item.title} className="border-b p-5 max-w-6xl">
             {item.relatedParks.length > 0 && (
-              <p className="uppercase font-extrabold mb-2">
+              <p className="uppercase font-bold mb-2">
                 {item.relatedParks.map((park) => (
-                  <span key={park.parkCode} className="font-black">
+                  <span key={park.parkCode} className="">
                     {park.fullName} ({park.states})
                   </span>
                 ))}
               </p>
             )}
-            <h3 className="text-2xl font-extrabold mb-5">{item.title}</h3>
-            <div className="flex flex-row gap-7">
+            <h3 className="text-2xl mb-5 font-black">{item.title}</h3>
+            <div className="flex flex-col md:flex-row lg:flex-row gap-7">
               {item.image?.url && (
                 <figure>
                   <img
                     src={item.image.url}
                     alt={item.image.altText}
-                    className="aspect-[3/2] w-90 object-cover rounded-xl"
+                    className="aspect-[3/2] sm:w-full md:w-85 lg:w-85 object-cover rounded-xl"
                   />
                 </figure>
               )}
-              <p className="w-2/4 tracking-wide leading-relaxed">
+
+              <p className="lg:w-2/4 sm:w-full tracking-wide leading-relaxed font-serif">
                 {item.abstract}
               </p>
             </div>

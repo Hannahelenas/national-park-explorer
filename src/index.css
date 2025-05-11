@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Serif&family=Noto+Serif+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700;900&family=Noto+Serif:wght@300;400;500;700;900&family=Noto+Serif+Display:wght@300;400;500;700;900&display=swap");
 @import "tailwindcss";
 
 /* Project Fonts and colors */
@@ -21,7 +21,12 @@ h1 {
 }
 
 h2 {
-  font-family: var(--font-noto-serif);
+  font-family: var(--font-noto-sans);
+}
+h2,
+h3 {
+  font-family: var(--font-noto-sans);
+  font-stretch: condensed;
 }
 
 .font-display {
