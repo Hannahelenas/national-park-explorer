@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Layout from "./components/Layout";
 import Parks from "./pages/Parks";
 import { NewsProvider } from "./contexts/NewsProvider";
+import { ParkProvider } from "./contexts/ParkProvider";
 
 const router = createBrowserRouter([
   {
@@ -21,9 +22,11 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <NewsProvider>
-        <RouterProvider router={router} />
-      </NewsProvider>
+      <ParkProvider>
+        <NewsProvider>
+          <RouterProvider router={router} />
+        </NewsProvider>
+      </ParkProvider>
     </>
   );
 }

@@ -9,6 +9,7 @@ interface ViteTypeOptions {
 interface ImportMetaEnv {
   readonly VITE_NPS_API_KEY: string;
   readonly VITE_NPS_NEWS_BASE_URL: string;
+  readonly VITE_NPS_PARKS_BASE_URL: string;
 }
 
 interface ImportMeta {

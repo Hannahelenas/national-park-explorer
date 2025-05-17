@@ -7,15 +7,13 @@ const RecentNewsSection = () => {
 
   return (
     <section className="px-2 flex flex-col items-center">
-      <h2 className="font-bold lg:mt-5 text-amber-950 tracking-widest text-2xl">
-        Latest News
-      </h2>
+      <h2 className="font-black lg:mt-5 tracking-wide text-4xl">Latest News</h2>
       {error && <p>Something went wrong: {error}</p>}
       <section className="flex flex-col gap-5 mt-5">
         {news.map((item) => (
           <article key={item.title} className="border-b p-5 max-w-6xl">
             {item.relatedParks.length > 0 && (
-              <p className="uppercase font-bold mb-2">
+              <p className="uppercase font-semibold mb-2 font-serif">
                 {item.relatedParks.map((park) => (
                   <span key={park.parkCode} className="">
                     {park.fullName} ({park.states})
@@ -23,7 +21,7 @@ const RecentNewsSection = () => {
                 ))}
               </p>
             )}
-            <h3 className="text-2xl mb-5 font-black">{item.title}</h3>
+            <h3 className="text-2xl mb-5 font-black max-w-4xl">{item.title}</h3>
             <div className="flex flex-col md:flex-row lg:flex-row gap-7">
               {item.image?.url && (
                 <figure>
@@ -34,7 +32,6 @@ const RecentNewsSection = () => {
                   />
                 </figure>
               )}
-
               <p className="lg:w-2/4 sm:w-full tracking-wide leading-relaxed font-serif">
                 {item.abstract}
               </p>

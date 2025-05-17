@@ -14,7 +14,7 @@ export const NewsProvider = ({ children }: { children: ReactNode }) => {
   const fetchNewsReleases = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${apiUrl}?limit=5&api_key=${apiKey}`);
+      const response = await fetch(`${apiUrl}?limit=&api_key=${apiKey}`);
       if (!response.ok) throw new Error("Could not fetch articles");
       const data = await response.json();
 

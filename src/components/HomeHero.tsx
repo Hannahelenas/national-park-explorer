@@ -4,7 +4,7 @@ export default function HomeHero() {
   return (
     <section>
       <div className="bg-white flex flex-col items-start px-5 lg:px-20 mt-20 relative z-20">
-        <h1 className="lg:mt-5 font-bold text-amber-950 tracking-widest text-2xl pt-5">
+        <h1 className="lg:mt-5 font-bold text-amber-950 tracking-widest text-2xl pt-5 font-serif">
           NATIONAL PARK GUIDE
         </h1>
         <h2
