@@ -35,6 +35,10 @@ export class Park {
     this.name = name;
     this.designation = designation;
   }
+  // Methods
+  getParkHeroImage(): ParkImage | null {
+    return this.images.length > 0 ? this.images[0] : null;
+  }
 }
 
 export interface ParkImage {
