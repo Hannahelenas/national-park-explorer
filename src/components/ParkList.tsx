@@ -7,27 +7,31 @@ const ParkList = () => {
   if (error) return <p>Something went wrong: {error}</p>;
 
   return (
-    <section className="mt-20">
-      <h1 className="text-3xl sm:text-6xl md:text-6xl font-black text-center">
+    <section className="mt-20 bg-primary flex flex-col items-center">
+      <h1 className="text-3xl sm:text-6xl md:text-6xl font-black text-center pt-10 mb-10 text-primary">
         Parks
       </h1>
-      <ul>
+      <section className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-1 max-w-6xl mx-auto">
         {parks.map((park) => (
-          <li key={park.id}>
-            <article>
-              <h2 className="text-2xl">{park.fullName}</h2>
-              <p>{park.designation}</p>
-              {park.getParkHeroImage() && (
-                <img
-                  src={park.getParkHeroImage()!.url}
-                  alt={park.getParkHeroImage()!.altText}
-                  className="aspect-[3/2] sm:w-full md:w-85 lg:w-100 object-cover rounded-xl"
-                />
-              )}
-            </article>
-          </li>
+          <article
+            key={park.id}
+            className="flex flex-col p-6 hover:scale-105 transition-transform duration-300 ease-in-out hover:cursor-pointer hover:underline hover:decoration-[var(--color-text-primary)]
+            text-primary rounded-xl "
+          >
+            {park.getParkHeroImage() && (
+              <img
+                src={park.getParkHeroImage()!.url}
+                alt={park.getParkHeroImage()!.altText}
+                className="aspect-[3/2] w-full object-cover rounded-xl"
+              />
+            )}
+            <h3 className="text-3xl mb-2 font-black mt-2">{park.name}</h3>
+            <p className="tracking-wide leading-relaxed font-serif">
+              {park.designation}
+            </p>
+          </article>
         ))}
-      </ul>
+      </section>
     </section>
   );
 };
