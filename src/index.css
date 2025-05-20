@@ -9,11 +9,21 @@
 
   /* Colors */
   --color-primary: #004677;
+  --color-bg-primary: #f5f3ed;
+  --color-text-primary: #313a44;
 }
 
 body {
   overflow-x: hidden;
   font-family: var(--font-noto-sans);
+}
+
+/* Classes for colors */
+.bg-primary {
+  background-color: var(--color-bg-primary);
+}
+.text-primary {
+  color: var(--color-text-primary);
 }
 
 /* h1 {
