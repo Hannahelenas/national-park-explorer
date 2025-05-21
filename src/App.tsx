@@ -6,6 +6,7 @@ import Layout from "./components/Layout";
 import Parks from "./pages/Parks";
 import { NewsProvider } from "./contexts/NewsProvider";
 import { ParkProvider } from "./contexts/ParkProvider";
+import { ParkOverview } from "./pages/ParkOverview";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "about", element: <About /> },
       { path: "parks", element: <Parks /> },
+      { path: "parks/:parkCode", element: <ParkOverview /> },
     ],
   },
 ]);
