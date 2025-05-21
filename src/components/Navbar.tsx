@@ -40,6 +40,7 @@ export default function Navbar() {
             <li key={link.to}>
               <NavLink
                 to={link.to}
+                end={link.to === "/parks"} // 👈 endast sätt `end` på parks
                 className={({ isActive }) => getLinkClass(isActive)}
               >
                 {link.name}
