@@ -24,7 +24,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="absolute top-0 left-0 w-full bg-white z-100 shadow-md">
+    <nav className="absolute top-0 left-0 w-full bg-white z-100">
       {" "}
       {/* Relative justerad */}
       {/* Desktop Menu */}
@@ -40,7 +40,7 @@ export default function Navbar() {
             <li key={link.to}>
               <NavLink
                 to={link.to}
-                end={link.to === "/parks"} // 👈 endast sätt `end` på parks
+                end={link.to === "/parks"}
                 className={({ isActive }) => getLinkClass(isActive)}
               >
                 {link.name}

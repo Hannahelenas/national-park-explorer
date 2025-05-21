@@ -6,7 +6,7 @@ import Layout from "./components/Layout";
 import Parks from "./pages/Parks";
 import { NewsProvider } from "./contexts/NewsProvider";
 import { ParkProvider } from "./contexts/ParkProvider";
-import ParkOverview from "./pages/ParkOverview";
+import { ParkOverview } from "./pages/ParkOverview";
 
 const router = createBrowserRouter([
   {

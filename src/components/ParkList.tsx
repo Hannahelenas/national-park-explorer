@@ -30,6 +30,7 @@ const ParkList = () => {
                     src={park.getParkHeroImage()!.url}
                     alt={park.getParkHeroImage()!.altText}
                     className="aspect-[3/2] w-full object-cover rounded-xl"
+                    loading="lazy"
                   />
                 )}
                 <h3 className="text-3xl mb-2 font-black mt-2">{park.name}</h3>

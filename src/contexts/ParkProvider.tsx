@@ -1,7 +1,7 @@
 import { useEffect, useState, ReactNode } from "react";
 import { Park } from "../models/Park";
 import { ParkContext } from "./ParkContext";
-import { fetchParks } from "../api/parks";
+import { fetchParks, fetchPark } from "../api/parks";
 
 export const ParkProvider = ({ children }: { children: ReactNode }) => {
   const [parks, setParks] = useState<Park[]>([]);
@@ -22,6 +22,16 @@ export const ParkProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  const getParkByCode = async (parkCode: string): Promise<Park | null> => {
+    try {
+      const data = await fetchPark(parkCode);
+      return data;
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  };
+
   useEffect(() => {
     loadParks();
   }, []);
@@ -33,6 +43,7 @@ export const ParkProvider = ({ children }: { children: ReactNode }) => {
         error,
         loading,
         refetch: loadParks,
+        getParkByCode,
       }}
     >
       {children}
