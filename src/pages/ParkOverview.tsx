@@ -3,6 +3,7 @@ import { useParkData } from "../hooks/useParkData";
 import { getFullStateNames } from "../utils/stateNames";
 import { ThingsToDoList } from "../components/ThingsToDoList";
 import { useThingsToDo } from "../hooks/useThingsToDo";
+import { ToursSection } from "../components/ToursSection";
 
 export const ParkOverview = () => {
   const { parkCode } = useParams<{ parkCode: string }>();
@@ -42,6 +43,38 @@ export const ParkOverview = () => {
           </div>
         </section>
 
+        <section className="max-w-lg mx-auto px-5 md:px-5 lg:px-5 xl:p-8 bg-primary rounded-2xl flex flex-col justify-center items-start mt-5">
+          <div>
+            <h3 className="font-bold mb-2">Physical address</h3>
+            <ul className="">
+              {park.addresses.map((address) => (
+                <li key={address.postalCode} className="mb-4">
+                  {address.type === "Physical" && (
+                    <address className="not-italic font-serif">
+                      <p>{address.line1}</p>
+                      <p>
+                        {address.city}, {address.stateCode} {address.postalCode}
+                      </p>
+                      <p>{address.countryCode}</p>
+                    </address>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-bold mb-2">Operating hours</h3>
+            <ul>
+              {park.operatingHours.map((operatingHours) => (
+                <li key={operatingHours.name}>
+                  {" "}
+                  <p className="font-serif"> {operatingHours.description}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         <section className="max-w-6xl mx-auto px-5 md:px-5 lg:px-5 xl:px-0 mt-10">
           <h2 className="font-serif text-3xl md:text-5xl xl:text-5xl mt-5">
             {park.fullName}
@@ -75,6 +108,7 @@ export const ParkOverview = () => {
             <ThingsToDoList thingsToDo={thingsToDo} />
           </section>
         )}
+        <ToursSection parkCode={park.parkCode} />
       </section>
     </>
   );
